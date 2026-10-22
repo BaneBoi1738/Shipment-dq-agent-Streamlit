@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shipment-dq-agent"
+version = "0.3.0"
+description = "Daily data quality audits for shipment tracking data, with schema-drift handling and Slack alert routing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "M Hari Kiran" }]
+dependencies = ["pandas>=2.0", "requests>=2.31", "pyyaml>=6.0"]
+
+[project.optional-dependencies]
+sheets = ["gspread>=6.0", "google-auth>=2.20"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+dq-agent = "dq_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dq_agent = ["*.yaml"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

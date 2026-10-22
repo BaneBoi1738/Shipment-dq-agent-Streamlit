@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.egg-info/
+.pytest_cache/
+service_account.json
+report.md
+report.json
+data/*.csv
+!data/.gitkeep
+aws/build/
+aws/lambda.zip
